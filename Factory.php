@@ -16,19 +16,16 @@ class Oracle implements DataBase {
 }
 
 // Here start Factory Classes
-// you can use interface class in the place of abstract class 
 abstract class DataBaseFactory {
     abstract public function getDataBase();
 }
 
-// if you used interface class, use "implements" in the place of "extends"
 class MYSQLFactory extends DataBaseFactory {
     public function getDataBase() {
         return new MYSQL();
     }
 }
 
-// if you used interface class, use "implements" in the place of "extends"
 class OracleFactory extends DataBaseFactory {
     public function getDataBase() {
         return new Oracle();
