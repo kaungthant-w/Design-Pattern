@@ -23,7 +23,6 @@ class ObjectAdapter implements FrameWork {
     }
 }
 
-
 // client code
 function adapter() {
     $framework = new ObjectAdapter();

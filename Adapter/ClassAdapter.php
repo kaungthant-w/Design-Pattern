@@ -22,5 +22,4 @@ function adapter() {
     $framework -> add(30);
 }
 
-
 adapter();
