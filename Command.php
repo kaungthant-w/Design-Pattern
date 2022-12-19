@@ -16,6 +16,12 @@ class EditCommand implements Command {
     }
 }
 
+class Paste implements Command {
+    public function execute() {
+        echo "Paste";
+    }
+}
+
 class Invoker {
     public $history = [];
     public function invoke( Command $command) {
@@ -26,7 +32,6 @@ class Invoker {
     public function undo() {
         array_splice($this -> history, 1,1);
         echo "Undo <br>";
-        // $command -> execute();
     }
 }
 
@@ -34,20 +39,26 @@ $invoker = new Invoker();
 $copy = new CopyCommand();
 $invoker -> invoke($copy);
 
-$edit = new EditCommand();
-$invoker -> invoke($edit);
-
-echo "<pre>";
-var_dump($invoker -> history);
+$paste = new Paste();
+$invoker -> invoke($paste);
 
 $invoker -> undo();
 $invoker -> undo();
-echo "<pre>";
-var_dump($invoker -> history);
 
-$invoker -> invoke($copy);
+// $edit = new EditCommand();
+// $invoker -> invoke($edit);
 
-$copy -> execute();
+// echo "<pre>";
+// var_dump($invoker -> history);
 
-echo "<pre>";
-var_dump($invoker -> history);
+// $invoker -> undo();
+// $invoker -> undo();
+// echo "<pre>";
+// var_dump($invoker -> history);
+
+// $invoker -> invoke($copy);
+
+// $copy -> execute();
+
+// echo "<pre>";
+// var_dump($invoker -> history);
