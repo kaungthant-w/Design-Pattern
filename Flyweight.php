@@ -35,7 +35,7 @@ class DotNetPlatform implements Platform {
     }
 
     public function execute(Code $code) {
-        echo "Execute". $code -> getCode()."On DotNet <br>";
+        echo "Execute ". $code -> getCode()."On DotNet <br>";
     }
 }
 
@@ -43,17 +43,18 @@ class PlatformFactory {
     public $map = [];
 
     public function getInstance($platformType) {
-        if( !isset($this->map[$platformType])) {
-            switch($platformType) {
+        if (!isset($this->map[$platformType])) {
+            switch ($platformType) {
                 case ".Net":
-                    $p = new DotNetPlatform($platformType);
+                    $p = new DotNetPlatform();
                     break;
                 case "JAVA": 
-                    $p = new JavaPlatform($platformType); 
+                    $p = new JavaPlatform(); 
                     break;   
-                }
             }
-            return $p;
+            $this->map[$platformType] = $p;
+        }
+        return $this->map[$platformType];
     } 
 }
 
