@@ -27,7 +27,7 @@ class CommandExecutorProxy implements CommandExecutor {
             $this -> executor -> runCommand($command);
         } else {
 
-            if(trim(substr($command, 0, 4) == "rm")) {
+            if(trim(substr($command, 0, 2) == "rm")) {
                 echo ("rm command is not allowed for non-admin users.");
                 
             } else {
