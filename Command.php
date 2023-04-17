@@ -30,7 +30,7 @@ class Invoker {
     }
 
     public function undo() {
-        array_splice($this -> history, 1,1);
+        array_pop($this->history);
         echo "Undo <br>";
     }
 }
